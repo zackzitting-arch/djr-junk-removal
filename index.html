@@ -235,8 +235,10 @@
         <div class="form-note">No obligation &middot; Veteran &amp; first-responder discounts</div>
       </form>
       <div class="form-ok" id="formOk">
-        <div class="big">✅</div><h3>Got it &mdash; thank you!</h3>
-        <p style="color:var(--muted);margin:0">We'll text you an estimate shortly. Need it now? Call <b>(208) 514-3015</b>.</p>
+        <div class="big">📲</div><h3>One tap to send</h3>
+        <p style="color:var(--muted);margin:0 0 14px">Your details are ready. Tap below to text them to DJR &mdash; we usually reply within the hour.</p>
+        <a class="btn btn-blue" id="smsLink" href="tel:+12085143015" style="width:100%;display:block;text-align:center;box-sizing:border-box">Text my details to DJR</a>
+        <p style="color:var(--muted);margin:12px 0 0;font-size:.92em">Prefer to talk? Call <b><a href="tel:+12085143015" style="color:inherit">(208) 514-3015</a></b>.</p>
       </div>
     </div>
   </div>
@@ -372,8 +374,10 @@
         <div class="form-note">No obligation &middot; We never share your info</div>
       </form>
       <div class="form-ok" id="formOk2">
-        <div class="big">✅</div><h3>Got it &mdash; thank you!</h3>
-        <p style="color:var(--muted);margin:0">We'll text you an estimate shortly. Need it now? Call <b>(208) 514-3015</b>.</p>
+        <div class="big">📲</div><h3>One tap to send</h3>
+        <p style="color:var(--muted);margin:0 0 14px">Your details are ready. Tap below to text them to DJR &mdash; we usually reply within the hour.</p>
+        <a class="btn btn-blue" id="smsLink2" href="tel:+12085143015" style="width:100%;display:block;text-align:center;box-sizing:border-box">Text my details to DJR</a>
+        <p style="color:var(--muted);margin:12px 0 0;font-size:.92em">Prefer to talk? Call <b><a href="tel:+12085143015" style="color:inherit">(208) 514-3015</a></b>.</p>
       </div>
     </div>
   </div>
@@ -411,8 +415,13 @@
     var b=document.getElementById('burger'), m=document.getElementById('mnav');
     if(b){b.addEventListener('click',function(){var o=m.classList.toggle('open');b.setAttribute('aria-expanded',o);});
       m.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){m.classList.remove('open');b.setAttribute('aria-expanded',false);});});}
-    function wire(f,ok){var el=document.getElementById(f);if(!el)return;el.addEventListener('submit',function(e){e.preventDefault();if(!el.checkValidity()){el.reportValidity();return;}el.style.display='none';document.getElementById(ok).classList.add('show');/* deploy: POST to DJR GHL webhook */});}
-    wire('leadForm','formOk'); wire('leadForm2','formOk2');
+    function wire(f,ok,link){var el=document.getElementById(f);if(!el)return;el.addEventListener('submit',function(e){e.preventDefault();if(!el.checkValidity()){el.reportValidity();return;}
+      var d=new FormData(el),g=function(k){var v=d.get(k);return v?String(v).trim():'';};
+      var msg='Quote request from djrjunkremoval.com\n'+'Name: '+g('name')+'\n'+'Phone: '+g('phone')+'\n'+(g('email')?'Email: '+g('email')+'\n':'')+'ZIP/Address: '+g('zip')+'\n'+'What needs to go: '+(g('details')||'(not specified)');
+      var ua=navigator.userAgent||'',sep=/iPhone|iPad|iPod|Macintosh/i.test(ua)?'&':'?';
+      var a=document.getElementById(link);if(a){a.setAttribute('href','sms:+12085143015'+sep+'body='+encodeURIComponent(msg));}
+      el.style.display='none';document.getElementById(ok).classList.add('show');});}
+    wire('leadForm','formOk','smsLink'); wire('leadForm2','formOk2','smsLink2');
   })();
 </script>
 
