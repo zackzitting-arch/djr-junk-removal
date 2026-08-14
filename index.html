@@ -83,6 +83,19 @@
   .form-ok{display:none;text-align:center;padding:22px 6px}
   .form-ok.show{display:block}.form-ok .big{font-size:2.6rem}.form-ok h3{margin:8px 0 6px}
 
+  /* hero CTA card list + outline button (2026-08-13) */
+  .qlist{list-style:none;margin:0 0 20px;padding:0;display:grid;gap:11px}
+  .qlist li{display:flex;align-items:flex-start;gap:10px;font-weight:600;font-size:.95rem;line-height:1.45}
+  .qlist svg{width:18px;height:18px;color:var(--blue);flex:none;margin-top:3px}
+  .btn-outline{background:#fff;border-color:var(--line);color:var(--navy)}
+  .btn-outline:hover{background:var(--soft);border-color:var(--blue);color:var(--blue)}
+  .qbtn{width:100%;box-sizing:border-box;display:flex;margin-bottom:10px}
+  /* Jobber embedded work request form (2026-08-13) */
+  .qcard-embed{padding:16px}
+  .jobber-inline-work-request{width:100%;min-height:120px}
+  .jobber-inline-work-request iframe.jobber-work-request{width:100%;border:0;display:block}
+  .embed-fallback{text-align:center;color:var(--muted);font-size:.92rem;padding:10px 0}
+
   /* trust strip */
   .strip{background:var(--navy)}
   .strip .wrap{display:flex;flex-wrap:wrap;gap:14px 34px;justify-content:center;padding:16px 22px}
@@ -177,6 +190,7 @@
   .ft-grid a:hover{color:var(--blue)}
   .ft-bottom{padding-top:20px;font-size:.82rem;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
 </style>
+<link rel="stylesheet" href="https://d3ey4dbjkt2f6s.cloudfront.net/assets/external/work_request_embed.css" media="screen" />
 </head>
 <body>
 
@@ -222,24 +236,16 @@
       </div>
     </div>
     <div class="qcard" id="quote">
-      <form id="leadForm">
-        <h3>Get a free estimate</h3>
-        <div class="sr">Tell us what you've got &mdash; we'll text you a price, usually within the hour.</div>
-        <div class="field"><label>Full name</label><input name="name" required autocomplete="name" placeholder="Jane Doe"></div>
-        <div class="field-row">
-          <div class="field"><label>Phone</label><input name="phone" type="tel" required autocomplete="tel" placeholder="(208) 555-0134"></div>
-          <div class="field"><label>ZIP</label><input name="zip" required autocomplete="postal-code" placeholder="83642"></div>
-        </div>
-        <div class="field"><label>What needs to go?</label><textarea name="details" rows="3" placeholder="e.g. couch, fridge, and a garage full of boxes"></textarea></div>
-        <button class="btn btn-blue" type="submit" style="width:100%">Get my free estimate</button>
-        <div class="form-note">No obligation &middot; Veteran &amp; first-responder discounts</div>
-      </form>
-      <div class="form-ok" id="formOk">
-        <div class="big">📲</div><h3>One tap to send</h3>
-        <p style="color:var(--muted);margin:0 0 14px">Your details are ready. Tap below to text them to DJR &mdash; we usually reply within the hour.</p>
-        <a class="btn btn-blue" id="smsLink" href="tel:+12085143015" style="width:100%;display:block;text-align:center;box-sizing:border-box">Text my details to DJR</a>
-        <p style="color:var(--muted);margin:12px 0 0;font-size:.92em">Prefer to talk? Call <b><a href="tel:+12085143015" style="color:inherit">(208) 514-3015</a></b>.</p>
-      </div>
+      <h3>Get a free estimate</h3>
+      <div class="sr">Tell us what you've got and we'll come back with an honest, upfront price &mdash; usually within the hour.</div>
+      <ul class="qlist">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg>We do 100% of the lifting</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg>Upfront pricing &mdash; loads starting at $80</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg>Same-day &amp; next-day pickups</li>
+      </ul>
+      <a class="btn btn-blue qbtn" href="#book">Request my free estimate &rarr;</a>
+      <a class="btn btn-outline qbtn" href="tel:+12085143015">Or call / text (208) 514-3015</a>
+      <div class="form-note">Mon&ndash;Sat &middot; 8am&ndash;6pm &middot; Veteran &amp; first-responder discounts</div>
     </div>
   </div>
 </section>
@@ -354,31 +360,21 @@
     <div>
       <div class="eyebrow">Free, no-obligation estimate</div>
       <h2>Tell us what to haul</h2>
-      <p class="l">Fill this out and we'll text you a price &mdash; usually within the hour. Prefer to talk? Call or text <b>(208) 514-3015</b>.</p>
+      <p class="l">Send us the details and we'll get you a price &mdash; usually within the hour. Prefer to talk? Call or text <b>(208) 514-3015</b>.</p>
       <ul>
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg>Upfront pricing &mdash; loads starting at $80</li>
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg>We do 100% of the lifting</li>
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg>Veteran &amp; first-responder discounts</li>
       </ul>
     </div>
-    <div class="qcard">
-      <form id="leadForm2">
-        <div class="field"><label>Full name</label><input name="name" required autocomplete="name" placeholder="Jane Doe"></div>
-        <div class="field-row">
-          <div class="field"><label>Phone</label><input name="phone" type="tel" required autocomplete="tel" placeholder="(208) 555-0134"></div>
-          <div class="field"><label>Email</label><input name="email" type="email" autocomplete="email" placeholder="you@email.com"></div>
-        </div>
-        <div class="field"><label>Service address or ZIP</label><input name="zip" required autocomplete="postal-code" placeholder="Meridian, 83642"></div>
-        <div class="field"><label>What needs to go?</label><textarea name="details" rows="3" placeholder="e.g. hot tub in the backyard + a garage cleanout"></textarea></div>
-        <button class="btn btn-blue" type="submit" style="width:100%">Get my free estimate</button>
-        <div class="form-note">No obligation &middot; We never share your info</div>
-      </form>
-      <div class="form-ok" id="formOk2">
-        <div class="big">📲</div><h3>One tap to send</h3>
-        <p style="color:var(--muted);margin:0 0 14px">Your details are ready. Tap below to text them to DJR &mdash; we usually reply within the hour.</p>
-        <a class="btn btn-blue" id="smsLink2" href="tel:+12085143015" style="width:100%;display:block;text-align:center;box-sizing:border-box">Text my details to DJR</a>
-        <p style="color:var(--muted);margin:12px 0 0;font-size:.92em">Prefer to talk? Call <b><a href="tel:+12085143015" style="color:inherit">(208) 514-3015</a></b>.</p>
-      </div>
+    <div class="qcard qcard-embed">
+      <div id="c6f17143-2368-4f8d-9f0f-fd63de28baf4-5076011"></div>
+      <script src="https://d3ey4dbjkt2f6s.cloudfront.net/assets/static_link/work_request_embed_snippet.js" clienthub_id="c6f17143-2368-4f8d-9f0f-fd63de28baf4-5076011" form_url="https://clienthub.getjobber.com/client_hubs/c6f17143-2368-4f8d-9f0f-fd63de28baf4/public/work_request/embedded_work_request_form?form_id=5076011"></script>
+      <noscript>
+        <div class="embed-fallback">Our booking form needs JavaScript turned on.<br>
+        Call or text us at <b><a href="tel:+12085143015" style="color:inherit">(208) 514-3015</a></b> and we'll get you a price.</div>
+      </noscript>
+      <div class="form-note">No obligation &middot; We never share your info</div>
     </div>
   </div>
 </section>
@@ -400,7 +396,7 @@
         <a href="tel:+12085143015">📞 (208) 514-3015</a>
         <a href="mailto:contact@davesjr.com">✉ contact@davesjr.com</a>
         <a href="#book">Request a free estimate</a>
-        <span style="display:block;padding:3px 0">Mon&ndash;Sat &middot; 8am&ndash;7pm</span>
+        <span style="display:block;padding:3px 0">Mon&ndash;Sat &middot; 8am&ndash;6pm</span>
       </div>
     </div>
     <div class="ft-bottom">
@@ -415,13 +411,6 @@
     var b=document.getElementById('burger'), m=document.getElementById('mnav');
     if(b){b.addEventListener('click',function(){var o=m.classList.toggle('open');b.setAttribute('aria-expanded',o);});
       m.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){m.classList.remove('open');b.setAttribute('aria-expanded',false);});});}
-    function wire(f,ok,link){var el=document.getElementById(f);if(!el)return;el.addEventListener('submit',function(e){e.preventDefault();if(!el.checkValidity()){el.reportValidity();return;}
-      var d=new FormData(el),g=function(k){var v=d.get(k);return v?String(v).trim():'';};
-      var msg='Quote request from djrjunkremoval.com\n'+'Name: '+g('name')+'\n'+'Phone: '+g('phone')+'\n'+(g('email')?'Email: '+g('email')+'\n':'')+'ZIP/Address: '+g('zip')+'\n'+'What needs to go: '+(g('details')||'(not specified)');
-      var ua=navigator.userAgent||'',sep=/iPhone|iPad|iPod|Macintosh/i.test(ua)?'&':'?';
-      var a=document.getElementById(link);if(a){a.setAttribute('href','sms:+12085143015'+sep+'body='+encodeURIComponent(msg));}
-      el.style.display='none';document.getElementById(ok).classList.add('show');});}
-    wire('leadForm','formOk','smsLink'); wire('leadForm2','formOk2','smsLink2');
   })();
 </script>
 
