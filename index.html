@@ -120,13 +120,49 @@
   .svc h3{font-size:1.14rem;color:var(--navy)}
   .svc p{font-size:.92rem;color:var(--muted);margin:7px 0 0}
 
-  /* pricing band */
-  .price-band{background:linear-gradient(120deg,var(--blue),var(--blue-2));color:#fff}
-  .price-band .wrap{display:flex;align-items:center;justify-content:space-between;gap:26px;padding:48px 22px;flex-wrap:wrap}
-  .price-band h2{font-size:clamp(1.7rem,3.2vw,2.4rem);color:#fff}
-  .price-band p{margin:8px 0 0;color:rgba(255,255,255,.9);font-weight:600;max-width:52ch}
-  .price-band .tag{font-size:3.2rem;font-weight:900;line-height:1;white-space:nowrap}
-  .price-band .tag small{font-size:1rem;font-weight:700;display:block;opacity:.85}
+  /* load-size pricing selector (2026-08-13) */
+  section[id]{scroll-margin-top:88px}
+  .loadsec{background:linear-gradient(152deg,var(--blue) 0%,var(--blue-2) 58%,var(--blue-3) 100%);color:#fff}
+  .loadsec .wrap{padding:62px 22px 68px}
+  .lhead{max-width:640px;margin:0 auto 34px;text-align:center}
+  .lkick{font-size:.74rem;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--amber)}
+  .lhead h2{font-size:clamp(1.9rem,3.6vw,2.7rem);color:#fff;margin:9px 0 12px}
+  .lhead p{margin:0;color:rgba(255,255,255,.88);font-weight:600;font-size:1.02rem}
+  .ld-grid{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:36px;align-items:center}
+  .truck{width:100%;height:auto;display:block;overflow:visible}
+  .lyr{opacity:0;transform:translateY(14px);transition:opacity .3s ease,transform .55s cubic-bezier(.16,1,.3,1)}
+  .lyr.on{opacity:1;transform:none}
+  .lyr[data-lv="2"]{transition-delay:.04s}
+  .lyr[data-lv="3"]{transition-delay:.08s}
+  .lyr[data-lv="4"]{transition-delay:.12s}
+  #ldRig{transition:transform .55s cubic-bezier(.16,1,.3,1)}
+  .ld-tabs{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin-top:14px;background:rgba(255,255,255,.13);padding:7px;border-radius:15px;border:1px solid rgba(255,255,255,.22)}
+  .ld-tabs input{position:absolute;width:1px;height:1px;opacity:0;pointer-events:none}
+  .ld-tabs label{display:flex;flex-direction:column;align-items:center;gap:1px;padding:11px 6px;border-radius:10px;cursor:pointer;font-weight:800;font-size:1.05rem;color:#fff;line-height:1.15;text-align:center;transition:background .18s,color .18s}
+  .ld-tabs label small{font-weight:700;font-size:.68rem;letter-spacing:.05em;text-transform:uppercase;opacity:.72}
+  .ld-tabs label:hover{background:rgba(255,255,255,.15)}
+  .ld-tabs input:checked+label{background:#fff;color:var(--navy);box-shadow:0 5px 16px rgba(5,35,72,.3)}
+  .ld-tabs input:checked+label small{opacity:.62}
+  .ld-tabs input:focus-visible+label{outline:3px solid var(--amber);outline-offset:2px}
+  .ld-panel{background:#fff;color:var(--ink);border-radius:18px;padding:26px;box-shadow:0 20px 54px rgba(5,35,72,.3);display:flex;flex-direction:column;min-height:436px}
+  .ld-panel h3{font-size:1.55rem;color:var(--navy);margin:0}
+  .ld-cap{font-size:.79rem;font-weight:800;letter-spacing:.09em;text-transform:uppercase;color:var(--blue-2);margin-top:5px}
+  .ld-blurb{margin:13px 0 0;color:var(--muted);font-weight:600;font-size:.97rem}
+  .ld-fits{list-style:none;margin:17px 0 22px;padding:0;display:grid;gap:9px}
+  .ld-fits li{display:flex;gap:10px;align-items:flex-start;font-weight:600;font-size:.95rem;line-height:1.4}
+  .ld-fits li::before{content:"";flex:none;width:7px;height:7px;border-radius:50%;background:var(--amber);margin-top:8px}
+  .ld-price{margin-top:auto;padding-top:18px;border-top:1px solid var(--line)}
+  .ld-from{display:block;font-size:.76rem;font-weight:800;letter-spacing:.11em;text-transform:uppercase;color:var(--muted);margin-bottom:5px}
+  .ld-amt{font-size:2.9rem;font-weight:900;line-height:1;letter-spacing:-.03em;color:var(--navy);display:block}
+  .ld-price.is-tbd .ld-amt{font-size:1.42rem;letter-spacing:-.01em;color:var(--blue-2)}
+  .ld-sub{display:block;color:var(--muted);font-size:.87rem;font-weight:600;margin-top:7px}
+  .ld-cta{width:100%;box-sizing:border-box;display:flex;margin-top:16px}
+  .ld-note{font-size:.79rem;color:var(--muted);margin-top:11px;text-align:center;line-height:1.45}
+  @keyframes ldIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+  .ld-anim{animation:ldIn .36s cubic-bezier(.16,1,.3,1) both}
+  @media(max-width:940px){.ld-grid{grid-template-columns:1fr;gap:24px}.ld-panel{min-height:0}}
+  @media(max-width:420px){.ld-tabs label{font-size:.95rem;padding:10px 3px}.ld-tabs label small{font-size:.62rem}}
+  @media(prefers-reduced-motion:reduce){.lyr,#ldRig{transition:none}.ld-anim{animation:none}}
 
   /* how */
   .how{background:var(--soft)}
@@ -279,16 +315,98 @@
   </div>
 </section>
 
-<!-- ===================== PRICING BAND ===================== -->
-<section class="price-band" id="pricing">
+<!-- ===================== LOAD-SIZE PRICING ===================== -->
+<section class="loadsec" id="pricing">
   <div class="wrap">
-    <div>
-      <h2>Affordable pricing that fits your needs</h2>
-      <p>Professional service with clear rates for every load size &mdash; from a single item to a full cleanout. No surprise fees on the day.</p>
+    <div class="lhead">
+      <div class="lkick">What it costs</div>
+      <h2>You only pay for the space you use</h2>
+      <p>Tap a load size to see what fits in it. Not sure which one you are? Send us a photo and we&rsquo;ll tell you. That part&rsquo;s free.</p>
     </div>
-    <div style="text-align:center">
-      <div class="tag">$80<small>starting price</small></div>
-      <a class="btn btn-dark" href="#book" style="margin-top:16px">Schedule today</a>
+    <div class="ld-grid">
+      <div>
+      <svg class="truck" viewBox="105 62 545 248" aria-hidden="true" focusable="false">
+        <defs>
+          <clipPath id="bedClip"><path d="M142 216 L142 122 L424 97 L424 216 Z"/></clipPath>
+        </defs>
+        <ellipse cx="352" cy="290" rx="252" ry="11" fill="rgba(3,28,60,.24)"/>
+        <g id="ldRig">
+          <!-- dump body: hinged low at the rear, headboard high toward the cab -->
+          <path d="M136 222 L136 118 L430 92 L430 222 Z" fill="#fff" stroke="var(--navy)" stroke-width="5" stroke-linejoin="round"/>
+          <g clip-path="url(#bedClip)">
+            <g stroke="var(--navy)" stroke-width="2" opacity=".1">
+              <path d="M200 90 V222 M260 90 V222 M320 90 V222 M380 90 V222"/>
+            </g>
+            <g id="ldPile" stroke="var(--navy)" stroke-width="3" stroke-linejoin="round">
+            <g class="lyr" data-lv="1">
+              <rect x="148" y="192" width="62" height="24" rx="3" fill="#ffb200" transform="rotate(-1.5 179 204)"/>
+              <rect x="216" y="196" width="48" height="20" rx="3" fill="#fff"/>
+              <rect x="270" y="190" width="58" height="26" rx="3" fill="#ffc94d" transform="rotate(1 299 203)"/>
+              <rect x="334" y="194" width="52" height="22" rx="3" fill="#fff"/>
+              <circle cx="404" cy="203" r="13" fill="var(--navy)"/>
+              <circle cx="404" cy="203" r="5.5" fill="#7aa7d8" stroke="none"/>
+            </g>
+            <g class="lyr" data-lv="2">
+              <rect x="152" y="166" width="56" height="26" rx="3" fill="#ffc94d" transform="rotate(2 180 179)"/>
+              <rect x="214" y="170" width="96" height="20" rx="10" fill="#fff" transform="rotate(-2 262 180)"/>
+              <rect x="316" y="164" width="50" height="28" rx="3" fill="#ffb200"/>
+              <rect x="372" y="168" width="46" height="24" rx="3" fill="#cfe6ff" transform="rotate(-2 395 180)"/>
+            </g>
+            <g class="lyr" data-lv="3">
+              <rect x="158" y="134" width="11" height="40" rx="3" fill="#ffb200"/>
+              <rect x="158" y="152" width="48" height="10" rx="3" fill="#ffb200"/>
+              <rect x="197" y="160" width="9" height="8" rx="3" fill="#ffb200"/>
+              <rect x="218" y="136" width="54" height="28" rx="3" fill="#fff" transform="rotate(3 245 150)"/>
+              <rect x="282" y="132" width="88" height="10" rx="5" fill="#ffc94d" transform="rotate(-6 326 137)"/>
+              <rect x="286" y="145" width="82" height="10" rx="5" fill="#fff" transform="rotate(-3 327 150)"/>
+              <rect x="376" y="138" width="44" height="26" rx="3" fill="#ffb200"/>
+            </g>
+            <g class="lyr" data-lv="4">
+              <rect x="172" y="104" width="52" height="28" rx="3" fill="#ffc94d" transform="rotate(-4 198 118)"/>
+              <path d="M258 104 c-13 0 -21 9 -21 20 c0 8 8 12 21 12 c13 0 21 -4 21 -12 c0 -11 -8 -20 -21 -20 Z" fill="#cfe6ff"/>
+              <rect x="292" y="102" width="56" height="26" rx="3" fill="#fff" transform="rotate(3 320 115)"/>
+              <rect x="356" y="100" width="52" height="26" rx="3" fill="#ffb200" transform="rotate(-2 382 113)"/>
+            </g>
+            </g>
+          </g>
+          <circle cx="140" cy="220" r="6" fill="var(--navy)"/>
+          <rect x="436" y="100" width="9" height="50" rx="4" fill="var(--navy)"/>
+          <!-- frame + cab -->
+          <rect x="130" y="222" width="470" height="14" rx="5" fill="var(--navy)"/>
+          <path d="M452 224 L452 146 L470 106 L578 106 L598 146 L598 224 Z" fill="#fff" stroke="var(--navy)" stroke-width="5" stroke-linejoin="round"/>
+          <path d="M476 117 L572 117 L586 146 L476 146 Z" fill="#cfe6ff" stroke="var(--navy)" stroke-width="3.5" stroke-linejoin="round"/>
+          <path d="M466 154 V216" stroke="var(--navy)" stroke-width="3.5" stroke-linecap="round"/>
+          <rect x="484" y="166" width="24" height="6" rx="3" fill="var(--navy)"/>
+          <rect x="592" y="156" width="10" height="22" rx="4" fill="var(--amber)" stroke="var(--navy)" stroke-width="3"/>
+        </g>
+        <g fill="var(--navy)">
+          <circle cx="196" cy="250" r="32"/><circle cx="272" cy="250" r="32"/><circle cx="534" cy="250" r="32"/>
+        </g>
+        <g fill="#fff">
+          <circle cx="196" cy="250" r="14"/><circle cx="272" cy="250" r="14"/><circle cx="534" cy="250" r="14"/>
+        </g>
+        <g fill="var(--navy)">
+          <circle cx="196" cy="250" r="5"/><circle cx="272" cy="250" r="5"/><circle cx="534" cy="250" r="5"/>
+        </g>
+      </svg>
+      <div class="ld-tabs" role="radiogroup" aria-label="Choose a load size">
+        <input type="radio" name="ldsize" id="ld-q" value="quarter" aria-label="Quarter load"><label for="ld-q" aria-hidden="true">&frac14;<small>load</small></label>
+        <input type="radio" name="ldsize" id="ld-h" value="half" checked aria-label="Half load"><label for="ld-h" aria-hidden="true">&frac12;<small>load</small></label>
+        <input type="radio" name="ldsize" id="ld-t" value="threequarter" aria-label="Three-quarter load"><label for="ld-t" aria-hidden="true">&frac34;<small>load</small></label>
+        <input type="radio" name="ldsize" id="ld-f" value="full" aria-label="Full load"><label for="ld-f" aria-hidden="true">Full<small>load</small></label>
+      </div>
+      </div>
+      <div class="ld-panel" aria-live="polite">
+        <div class="ld-anim" id="ldTop">
+          <h3 id="ldName">Half load</h3>
+          <div class="ld-cap" id="ldCap">Half the truck</div>
+          <p class="ld-blurb" id="ldBlurb"></p>
+          <ul class="ld-fits" id="ldFits"></ul>
+        </div>
+        <div class="ld-price" id="ldPrice"></div>
+        <a class="btn btn-blue ld-cta" href="#book">Get my exact price &rarr;</a>
+        <div class="ld-note">Got less than a quarter load? Single items start at $80. We confirm your price on site before anything gets loaded.</div>
+      </div>
     </div>
   </div>
 </section>
@@ -411,6 +529,52 @@
     var b=document.getElementById('burger'), m=document.getElementById('mnav');
     if(b){b.addEventListener('click',function(){var o=m.classList.toggle('open');b.setAttribute('aria-expanded',o);});
       m.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){m.classList.remove('open');b.setAttribute('aria-expanded',false);});});}
+  })();
+
+  (function(){
+    var L={
+      quarter:{n:'Quarter load',c:'A quarter of the truck',lv:1,
+        b:'A few big things you can\u2019t fit in your own truck.',
+        i:['Couch or a sectional piece','Mattress and box spring','Washer, dryer or fridge','A small stack of boxes'],
+        p:"$125"},
+      half:{n:'Half load',c:'Half the truck',lv:2,
+        b:'A whole room, or one bay of the garage cleared out.',
+        i:['Living room or bedroom set','One garage bay','Yard debris and branches','Old appliances and scrap'],
+        p:"$275"},
+      threequarter:{n:'Three-quarter load',c:'Three quarters of the truck',lv:3,
+        b:'The big one: a packed garage, a basement, a whole backyard.',
+        i:['Packed two-car garage','Basement or attic cleanout','Deck, fence or shed tear-out','Hot tub and surround'],
+        p:"$389"},
+      full:{n:'Full load',c:'The whole truck',lv:4,
+        b:'The whole property, start to finish. We bring the crew.',
+        i:['Whole-house or estate cleanout','Rental or tenant turnover','Construction and remodel debris','Everything above, in one trip'],
+        p:"$495"}
+    };
+    var rig=document.getElementById('ldRig'), lyrs=document.querySelectorAll('.lyr'),
+        top=document.getElementById('ldTop'), nm=document.getElementById('ldName'),
+        cap=document.getElementById('ldCap'), bl=document.getElementById('ldBlurb'),
+        fits=document.getElementById('ldFits'), pr=document.getElementById('ldPrice'),
+        radios=document.querySelectorAll('input[name="ldsize"]');
+    if(!rig||!pr||!radios.length)return;
+    function paint(key,animate){
+      var d=L[key]; if(!d)return;
+      for(var s=0;s<lyrs.length;s++){
+        lyrs[s].classList.toggle('on', parseInt(lyrs[s].getAttribute('data-lv'),10)<=d.lv);
+      }
+      rig.style.transform='translateY('+(d.lv).toFixed(1)+'px)';
+      nm.textContent=d.n; cap.textContent=d.c; bl.innerHTML=d.b;
+      fits.innerHTML=d.i.map(function(x){return '<li>'+x+'</li>';}).join('');
+      pr.className='ld-price'+(d.p?'':' is-tbd');
+      pr.innerHTML=d.p
+        ? '<span class="ld-from">Starting at</span><span class="ld-amt">'+d.p+'</span><span class="ld-sub">Loaded, hauled and swept up. No surprise fees on the day.</span>'
+        : '<span class="ld-from">Your price</span><span class="ld-amt">Quoted on site</span><span class="ld-sub">Text us a photo and we\u2019ll price it \u2014 usually within the hour.</span>';
+      if(animate){top.classList.remove('ld-anim');void top.offsetWidth;top.classList.add('ld-anim');}
+    }
+    for(var i=0;i<radios.length;i++){
+      radios[i].addEventListener('change',function(){paint(this.value,true);});
+    }
+    var init=document.querySelector('input[name="ldsize"]:checked');
+    paint(init?init.value:'half',false);
   })();
 </script>
 
