@@ -227,6 +227,18 @@
   .ft-bottom{padding-top:20px;font-size:.82rem;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
 </style>
 <link rel="stylesheet" href="https://d3ey4dbjkt2f6s.cloudfront.net/assets/external/work_request_embed.css" media="screen" />
+<!-- Meta pixel 4259293757656851 - added 2026-08-22 for the estimate-booking campaign -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','4259293757656851');fbq('track','PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=4259293757656851&ev=PageView&noscript=1" alt=""></noscript>
+<!-- end Meta pixel -->
 </head>
 <body>
 
@@ -580,5 +592,45 @@
   })();
 </script>
 
+<!-- Meta pixel: booking-funnel events. See apply-2026-08-22-meta-pixel.py -->
+<script>
+(function(){
+  if(!window.fbq) return;
+
+  // Mid-funnel: the booking section was actually seen.
+  var book = document.getElementById('book');
+  if (book && 'IntersectionObserver' in window) {
+    var seen = false;
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if (en.isIntersecting && !seen) {
+          seen = true;
+          fbq('trackCustom','BookingFormViewed');
+          io.disconnect();
+        }
+      });
+    }, {threshold: 0.4});
+    io.observe(book);
+  }
+
+  // Conversion: only a real submit signal from the Jobber origin counts.
+  var fired = false;
+  window.addEventListener('message', function(ev){
+    if (fired) return;
+    if (!/(^|\.)clienthub\.getjobber\.com$/.test((function(){
+      try { return new URL(ev.origin).hostname; } catch(e){ return ''; }
+    })())) return;
+    var payload = '';
+    try { payload = typeof ev.data === 'string' ? ev.data : JSON.stringify(ev.data); }
+    catch(e){ return; }
+    // Left in deliberately so the real message shape can be read off a live submission.
+    console.debug('[djr] jobber message:', payload.slice(0,300));
+    if (/submit|success|complete|thank|confirmation/i.test(payload)) {
+      fired = true;
+      fbq('track','Lead',{content_name:'Jobber work request'});
+    }
+  }, false);
+})();
+</script>
 </body>
 </html>
