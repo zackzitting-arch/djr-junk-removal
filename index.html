@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="DJR Junk Removal — fast, affordable junk removal &amp; hauling in Meridian, Boise &amp; the Treasure Valley. Loads starting at $80. Licensed &amp; insured, 5.0 stars on Google.">
+<meta name="description" content="DJR Junk Removal — fast, affordable junk removal &amp; hauling in Meridian, Boise &amp; the Treasure Valley. Loads starting at $125. Licensed &amp; insured, 5.0 stars on Google.">
 <meta name="theme-color" content="#108bf9">
 <meta property="og:title" content="DJR Junk Removal — Meridian, Boise &amp; the Treasure Valley">
-<meta property="og:description" content="Junk gone today — the heavy lifting is on us. Loads starting at $80. 5.0 stars on Google.">
+<meta property="og:description" content="Junk gone today — the heavy lifting is on us. Loads starting at $125. 5.0 stars on Google.">
 <meta property="og:type" content="website">
 <title>DJR Junk Removal &mdash; Meridian, Boise & the Treasure Valley</title>
 <style>
@@ -135,8 +135,9 @@
   .lyr[data-lv="2"]{transition-delay:.04s}
   .lyr[data-lv="3"]{transition-delay:.08s}
   .lyr[data-lv="4"]{transition-delay:.12s}
+  .lyr[data-lv="5"]{transition-delay:.16s}
   #ldRig{transition:transform .55s cubic-bezier(.16,1,.3,1)}
-  .ld-tabs{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin-top:14px;background:rgba(255,255,255,.13);padding:7px;border-radius:15px;border:1px solid rgba(255,255,255,.22)}
+  .ld-tabs{display:grid;grid-template-columns:repeat(5,1fr);gap:7px;margin-top:14px;background:rgba(255,255,255,.13);padding:7px;border-radius:15px;border:1px solid rgba(255,255,255,.22)}
   .ld-tabs input{position:absolute;width:1px;height:1px;opacity:0;pointer-events:none}
   .ld-tabs label{display:flex;flex-direction:column;align-items:center;gap:1px;padding:11px 6px;border-radius:10px;cursor:pointer;font-weight:800;font-size:1.05rem;color:#fff;line-height:1.15;text-align:center;transition:background .18s,color .18s}
   .ld-tabs label small{font-weight:700;font-size:.68rem;letter-spacing:.05em;text-transform:uppercase;opacity:.72}
@@ -161,7 +162,7 @@
   @keyframes ldIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
   .ld-anim{animation:ldIn .36s cubic-bezier(.16,1,.3,1) both}
   @media(max-width:940px){.ld-grid{grid-template-columns:1fr;gap:24px}.ld-panel{min-height:0}}
-  @media(max-width:420px){.ld-tabs label{font-size:.95rem;padding:10px 3px}.ld-tabs label small{font-size:.62rem}}
+  @media(max-width:420px){.ld-tabs{gap:4px;padding:5px}.ld-tabs label{font-size:.95rem;padding:10px 2px}.ld-tabs label small{font-size:.62rem;letter-spacing:.02em}}
   @media(prefers-reduced-motion:reduce){.lyr,#ldRig{transition:none}.ld-anim{animation:none}}
 
   /* how */
@@ -203,6 +204,28 @@
   .rev .who{font-weight:800;color:var(--navy);font-size:.94rem}
   .rev .who span{display:block;font-weight:600;color:var(--muted);font-size:.82rem}
   .gbadge{display:inline-flex;align-items:center;gap:9px;margin-top:16px;font-size:1.05rem;font-weight:800;color:var(--navy);background:#fff;border:1px solid var(--line);border-radius:99px;padding:8px 18px;box-shadow:var(--shadow-sm)}
+
+  /* Make-A-Wish / Jase (2026-10-02) */
+  .wish{background:linear-gradient(160deg,var(--navy),var(--navy-2));color:#fff}
+  .wish-card{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,.85fr);gap:56px;align-items:center}
+  .wish h2{font-size:clamp(1.9rem,3.6vw,2.6rem);color:#fff}
+  .wish-by{margin:12px 0 0;font-weight:700;font-size:.95rem;color:var(--amber)}
+  .wish-copy p{color:rgba(255,255,255,.86);font-size:1.04rem;margin:16px 0 0;max-width:60ch}
+  .wish-copy p b{color:#fff}
+  .wish-q{margin:22px 0 0;padding:18px 20px;border-radius:14px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);max-width:60ch}
+  .wish-q p{margin:0;color:#fff;font-size:1.1rem;font-weight:700;line-height:1.4}
+  .wish-q footer{margin-top:8px;font-size:.88rem;font-weight:600;color:rgba(255,255,255,.72)}
+  .wish-give{background:#fff;color:var(--ink);border-radius:18px;padding:26px;text-align:center;box-shadow:0 20px 54px rgba(5,10,20,.35)}
+  .wish-give h3{font-size:1.35rem;color:var(--navy)}
+  .wish-give .sr{color:var(--muted);font-size:.92rem;margin:6px 0 16px}
+  .wish-qr{display:block;width:min(210px,100%);margin:0 auto 18px;padding:10px;border-radius:12px;border:1px solid var(--line);background:#fff;transition:border-color .2s,box-shadow .2s}
+  .wish-qr:hover{border-color:var(--blue);box-shadow:var(--shadow-sm)}
+  .wish-qr:focus-visible{outline:3px solid var(--amber);outline-offset:2px}
+  .wish-qr svg{display:block;width:100%;height:auto;shape-rendering:crispEdges}
+  .wish-give .btn{width:100%;box-sizing:border-box;white-space:normal}
+  .wish-give .form-note a{color:var(--blue-2);font-weight:700;text-decoration:underline;text-underline-offset:2px}
+  @media(max-width:900px){.wish-card{grid-template-columns:1fr;gap:32px}.wish-give{max-width:420px;width:100%;margin:0 auto}}
+  @media(max-width:420px){.wish-give{padding:22px 18px}.wish-q{padding:16px}}
 
   /* final */
   .book{background:var(--soft)}
@@ -274,7 +297,7 @@ src="https://www.facebook.com/tr?id=4259293757656851&ev=PageView&noscript=1" alt
       <div class="eyebrow" style="color:#fff;opacity:.85">Meridian &middot; Boise &middot; Eagle &middot; Garden City &middot; Star</div>
       <h1>Junk gone today &mdash; the heavy lifting's on us.</h1>
       <p class="sub">Complete home &amp; business cleanouts across the Treasure Valley. We load it, haul it, and sort every load to donate or recycle what we can. Owner-operated, licensed &amp; insured.</p>
-      <div class="price">Loads starting at <b>$80</b></div>
+      <div class="price">Loads starting at <b>$125</b></div>
       <div class="hero-cta">
         <a class="btn btn-blue" href="#book">Get my free estimate &rarr;</a>
         <a class="btn btn-ghost" href="tel:+12085143015">Call (208) 514-3015</a>
@@ -290,7 +313,7 @@ src="https://www.facebook.com/tr?id=4259293757656851&ev=PageView&noscript=1" alt
       <div class="sr">Tell us what you've got and we'll come back with an honest, upfront price &mdash; usually within the hour.</div>
       <ul class="qlist">
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg>We do 100% of the lifting</li>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg>Upfront pricing &mdash; loads starting at $80</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg>Upfront pricing &mdash; loads starting at $125</li>
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg>Same-day &amp; next-day pickups</li>
       </ul>
       <a class="btn btn-blue qbtn" href="#book">Request my free estimate &rarr;</a>
@@ -304,7 +327,7 @@ src="https://www.facebook.com/tr?id=4259293757656851&ev=PageView&noscript=1" alt
 <div class="strip">
   <div class="wrap">
     <div><span class="stars">★★★★★</span> 5.0 on Google</div>
-    <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 1v22M5 8h9a3 3 0 0 1 0 6H8"/></svg>Loads from $80</div>
+    <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 1v22M5 8h9a3 3 0 0 1 0 6H8"/></svg>Loads from $125</div>
     <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M12 2 4 5v6c0 5 3.4 8.6 8 11 4.6-2.4 8-6 8-11V5z"/></svg>Veteran &amp; first-responder discounts</div>
     <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M3 7l9-4 9 4-9 4z"/><path d="M3 7v6l9 4 9-4V7"/></svg>Donate &amp; recycle first</div>
   </div>
@@ -354,19 +377,21 @@ src="https://www.facebook.com/tr?id=4259293757656851&ev=PageView&noscript=1" alt
             <g id="ldPile" stroke="var(--navy)" stroke-width="3" stroke-linejoin="round">
             <g class="lyr" data-lv="1">
               <rect x="148" y="192" width="62" height="24" rx="3" fill="#ffb200" transform="rotate(-1.5 179 204)"/>
+            </g>
+            <g class="lyr" data-lv="2">
               <rect x="216" y="196" width="48" height="20" rx="3" fill="#fff"/>
               <rect x="270" y="190" width="58" height="26" rx="3" fill="#ffc94d" transform="rotate(1 299 203)"/>
               <rect x="334" y="194" width="52" height="22" rx="3" fill="#fff"/>
               <circle cx="404" cy="203" r="13" fill="var(--navy)"/>
               <circle cx="404" cy="203" r="5.5" fill="#7aa7d8" stroke="none"/>
             </g>
-            <g class="lyr" data-lv="2">
+            <g class="lyr" data-lv="3">
               <rect x="152" y="166" width="56" height="26" rx="3" fill="#ffc94d" transform="rotate(2 180 179)"/>
               <rect x="214" y="170" width="96" height="20" rx="10" fill="#fff" transform="rotate(-2 262 180)"/>
               <rect x="316" y="164" width="50" height="28" rx="3" fill="#ffb200"/>
               <rect x="372" y="168" width="46" height="24" rx="3" fill="#cfe6ff" transform="rotate(-2 395 180)"/>
             </g>
-            <g class="lyr" data-lv="3">
+            <g class="lyr" data-lv="4">
               <rect x="158" y="134" width="11" height="40" rx="3" fill="#ffb200"/>
               <rect x="158" y="152" width="48" height="10" rx="3" fill="#ffb200"/>
               <rect x="197" y="160" width="9" height="8" rx="3" fill="#ffb200"/>
@@ -375,7 +400,7 @@ src="https://www.facebook.com/tr?id=4259293757656851&ev=PageView&noscript=1" alt
               <rect x="286" y="145" width="82" height="10" rx="5" fill="#fff" transform="rotate(-3 327 150)"/>
               <rect x="376" y="138" width="44" height="26" rx="3" fill="#ffb200"/>
             </g>
-            <g class="lyr" data-lv="4">
+            <g class="lyr" data-lv="5">
               <rect x="172" y="104" width="52" height="28" rx="3" fill="#ffc94d" transform="rotate(-4 198 118)"/>
               <path d="M258 104 c-13 0 -21 9 -21 20 c0 8 8 12 21 12 c13 0 21 -4 21 -12 c0 -11 -8 -20 -21 -20 Z" fill="#cfe6ff"/>
               <rect x="292" y="102" width="56" height="26" rx="3" fill="#fff" transform="rotate(3 320 115)"/>
@@ -404,6 +429,7 @@ src="https://www.facebook.com/tr?id=4259293757656851&ev=PageView&noscript=1" alt
         </g>
       </svg>
       <div class="ld-tabs" role="radiogroup" aria-label="Choose a load size">
+        <input type="radio" name="ldsize" id="ld-m" value="minimum" aria-label="Minimum load"><label for="ld-m" aria-hidden="true">Min<small>load</small></label>
         <input type="radio" name="ldsize" id="ld-q" value="quarter" aria-label="Quarter load"><label for="ld-q" aria-hidden="true">&frac14;<small>load</small></label>
         <input type="radio" name="ldsize" id="ld-h" value="half" checked aria-label="Half load"><label for="ld-h" aria-hidden="true">&frac12;<small>load</small></label>
         <input type="radio" name="ldsize" id="ld-t" value="threequarter" aria-label="Three-quarter load"><label for="ld-t" aria-hidden="true">&frac34;<small>load</small></label>
@@ -419,7 +445,7 @@ src="https://www.facebook.com/tr?id=4259293757656851&ev=PageView&noscript=1" alt
         </div>
         <div class="ld-price" id="ldPrice"></div>
         <a class="btn btn-blue ld-cta" href="#book">Get my exact price &rarr;</a>
-        <div class="ld-note">Got less than a quarter load? Single items start at $80. We confirm your price on site before anything gets loaded.</div>
+        <div class="ld-note">Extra fees may apply for refrigerant items, stairs, hazardous conditions and heavy material. We confirm your price on site before anything gets loaded.</div>
       </div>
     </div>
   </div>
@@ -486,6 +512,31 @@ src="https://www.facebook.com/tr?id=4259293757656851&ev=PageView&noscript=1" alt
   </div>
 </section>
 
+<!-- ===================== MAKE-A-WISH: JASE (2026-10-02, PR-approved by Make-A-Wish Idaho) ===================== -->
+<section class="blk wish" id="wish">
+  <div class="wrap">
+    <div class="wish-card">
+      <div class="wish-copy">
+        <h2>Every job we do helps grant Jase&rsquo;s wish</h2>
+        <div class="wish-by">DJR Junk Removal Adopt-A-Wish &middot; with Make-A-Wish&reg; Idaho</div>
+        <p>Jase is 13 and lives in Star. He loves football, WWE with his brothers, baking with his mom and anything creative. He has been through more surgeries than most people face in a lifetime, and his wish is to <b>meet the San Francisco 49ers and see them play at home</b>. Make-A-Wish Idaho is aiming to grant it this football season.</p>
+        <p>We adopted his wish. <b>$10 from every job DJR does goes to Make-A-Wish Idaho</b> to help make it happen, so booking a haul is a way to help too.</p>
+        <blockquote class="wish-q">
+          <p>&ldquo;Despite everything he&rsquo;s been through, he&rsquo;s one of the most positive little boys that you&rsquo;ll ever meet.&rdquo;</p>
+          <footer>Tanelle, Jase&rsquo;s mom</footer>
+        </blockquote>
+      </div>
+      <div class="wish-give">
+        <h3>Want to chip in?</h3>
+        <div class="sr">Give directly to Make-A-Wish Idaho for Jase. Scan the code, or tap it on your phone.</div>
+        <a class="wish-qr" href="https://www.zeffy.com/en-US/donation-form/djr-junk-removal" target="_blank" rel="noopener" aria-label="Donate to Make-A-Wish Idaho for Jase (opens in a new tab)"><svg role="img" aria-label="QR code: donate to Make-A-Wish Idaho for Jase" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 33 33"><path stroke="#13233a" d="M0 0.5h7m1 0h1m4 0h4m1 0h1m1 0h1m2 0h1m2 0h7m-33 1h1m5 0h1m5 0h3m4 0h1m1 0h1m2 0h1m1 0h1m5 0h1m-33 1h1m1 0h3m1 0h1m3 0h1m1 0h1m1 0h2m1 0h2m1 0h3m3 0h1m1 0h3m1 0h1m-33 1h1m1 0h3m1 0h1m1 0h1m1 0h1m4 0h2m1 0h2m2 0h1m1 0h1m1 0h1m1 0h3m1 0h1m-33 1h1m1 0h3m1 0h1m1 0h1m1 0h1m1 0h1m3 0h3m4 0h1m2 0h1m1 0h3m1 0h1m-33 1h1m5 0h1m1 0h1m1 0h2m3 0h1m1 0h1m1 0h2m1 0h1m1 0h1m1 0h1m5 0h1m-33 1h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7m-25 1h2m4 0h1m2 0h3m1 0h1m-22 1h1m3 0h1m1 0h3m3 0h1m2 0h1m1 0h1m1 0h5m1 0h5m2 0h1m-33 1h2m6 0h4m2 0h5m2 0h1m1 0h1m1 0h1m3 0h3m-30 1h2m2 0h1m1 0h4m1 0h3m1 0h2m1 0h2m1 0h1m1 0h2m2 0h1m1 0h1m-31 1h1m1 0h2m4 0h1m1 0h1m1 0h1m3 0h5m2 0h3m-26 1h2m1 0h1m1 0h1m1 0h1m4 0h1m1 0h1m1 0h1m3 0h4m1 0h1m1 0h2m2 0h1m-32 1h2m1 0h2m2 0h4m1 0h2m3 0h1m4 0h1m3 0h1m-28 1h1m1 0h1m2 0h2m4 0h1m1 0h6m1 0h1m2 0h1m1 0h3m3 0h1m-29 1h1m1 0h1m3 0h1m5 0h4m1 0h7m1 0h1m-28 1h1m1 0h7m2 0h1m1 0h1m2 0h1m2 0h3m1 0h1m1 0h1m1 0h1m2 0h1m-30 1h4m2 0h1m1 0h4m1 0h1m1 0h2m2 0h1m1 0h2m4 0h2m-31 1h1m2 0h1m1 0h3m1 0h7m2 0h1m1 0h1m1 0h3m2 0h1m1 0h1m1 0h1m-32 1h1m1 0h2m1 0h1m1 0h1m1 0h4m3 0h4m1 0h2m1 0h1m1 0h2m3 0h1m-32 1h3m3 0h2m1 0h1m4 0h1m2 0h1m1 0h4m1 0h1m1 0h1m1 0h2m1 0h2m-33 1h2m1 0h1m1 0h1m1 0h2m2 0h4m2 0h1m2 0h1m1 0h2m1 0h1m1 0h1m1 0h1m1 0h1m-30 1h2m1 0h2m1 0h2m2 0h2m1 0h2m1 0h1m1 0h1m2 0h3m2 0h1m1 0h2m-30 1h1m4 0h1m1 0h2m4 0h1m1 0h1m1 0h1m1 0h2m1 0h3m5 0h1m-33 1h2m1 0h4m1 0h1m1 0h3m1 0h5m1 0h9m2 0h1m-24 1h4m1 0h1m2 0h1m1 0h1m3 0h3m3 0h1m1 0h2m-32 1h7m1 0h2m5 0h1m2 0h1m2 0h1m2 0h1m1 0h1m1 0h2m1 0h1m-32 1h1m5 0h1m2 0h1m1 0h1m2 0h2m1 0h1m1 0h3m2 0h1m3 0h1m3 0h1m-33 1h1m1 0h3m1 0h1m1 0h3m6 0h1m2 0h3m1 0h6m-30 1h1m1 0h3m1 0h1m2 0h1m3 0h1m1 0h4m2 0h1m1 0h1m2 0h4m-30 1h1m1 0h3m1 0h1m2 0h1m2 0h2m1 0h1m1 0h2m2 0h2m2 0h6m-31 1h1m5 0h1m2 0h1m1 0h3m1 0h7m1 0h4m2 0h1m-30 1h7m1 0h1m2 0h4m1 0h1m3 0h2m2 0h1m1 0h1m5 0h1"/></svg></a>
+        <a class="btn btn-blue" href="https://www.zeffy.com/en-US/donation-form/djr-junk-removal" target="_blank" rel="noopener">Donate to Jase&rsquo;s wish &rarr;</a>
+        <div class="form-note">Donations go straight to Make-A-Wish Idaho. Learn more at <a href="https://idaho.wish.org" target="_blank" rel="noopener">idaho.wish.org</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ===================== FINAL BOOKING ===================== -->
 <section class="blk book" id="book">
   <div class="wrap book-in">
@@ -494,7 +545,7 @@ src="https://www.facebook.com/tr?id=4259293757656851&ev=PageView&noscript=1" alt
       <h2>Tell us what to haul</h2>
       <p class="l">Send us the details and we'll get you a price &mdash; usually within the hour. Prefer to talk? Call or text <b>(208) 514-3015</b>.</p>
       <ul>
-        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg>Upfront pricing &mdash; loads starting at $80</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg>Upfront pricing &mdash; loads starting at $125</li>
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg>We do 100% of the lifting</li>
         <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg>Veteran &amp; first-responder discounts</li>
       </ul>
@@ -547,22 +598,26 @@ src="https://www.facebook.com/tr?id=4259293757656851&ev=PageView&noscript=1" alt
 
   (function(){
     var L={
-      quarter:{n:'Quarter load',c:'A quarter of the truck',lv:1,
+      minimum:{n:'Minimum load',c:'Up to 1 cubic yard \u00b7 up to 5 min labor',lv:1,
+        b:'One or two things you just want gone.',
+        i:['A washer or a dryer','A small stack of boxes','A few bags of trash or yard waste','A chair, desk or small table'],
+        p:"$125"},
+      quarter:{n:'Quarter load',c:'Up to 4 cubic yards \u00b7 up to 15 min labor',lv:2,
         b:'A few big things you can\u2019t fit in your own truck.',
-        i:['Couch or a sectional piece','Mattress and box spring','Washer, dryer or fridge','A small stack of boxes'],
-        p:"$145"},
-      half:{n:'Half load',c:'Half the truck',lv:2,
+        i:['A sectional sofa','Bed frame, mattress and dresser','A closet or one corner of the garage','A weekend of yard cleanup'],
+        p:"$290"},
+      half:{n:'Half load',c:'Up to 8 cubic yards \u00b7 up to 30 min labor',lv:3,
         b:'A whole room, or one bay of the garage cleared out.',
-        i:['Living room or bedroom set','One garage bay','Yard debris and branches','Old appliances and scrap'],
-        p:"$275"},
-      threequarter:{n:'Three-quarter load',c:'Three quarters of the truck',lv:3,
+        i:['Living room or bedroom set','One garage bay','Yard debris and branches','Old exercise equipment and scrap'],
+        p:"$500"},
+      threequarter:{n:'Three-quarter load',c:'Up to 12 cubic yards \u00b7 up to 45 min labor',lv:4,
         b:'The big one: a packed garage, a basement, a whole backyard.',
         i:['Packed two-car garage','Basement or attic cleanout','Deck, fence or shed tear-out','Hot tub and surround'],
-        p:"$389"},
-      full:{n:'Full load',c:'The whole truck',lv:4,
+        p:"$630"},
+      full:{n:'Full load',c:'Up to 15 cubic yards \u00b7 up to 60 min labor',lv:5,
         b:'The whole property, start to finish. We bring the crew.',
         i:['Whole-house or estate cleanout','Rental or tenant turnover','Construction and remodel debris','Everything above, in one trip'],
-        p:"$495"}
+        p:"$695"}
     };
     var rig=document.getElementById('ldRig'), lyrs=document.querySelectorAll('.lyr'),
         top=document.getElementById('ldTop'), nm=document.getElementById('ldName'),
@@ -575,12 +630,12 @@ src="https://www.facebook.com/tr?id=4259293757656851&ev=PageView&noscript=1" alt
       for(var s=0;s<lyrs.length;s++){
         lyrs[s].classList.toggle('on', parseInt(lyrs[s].getAttribute('data-lv'),10)<=d.lv);
       }
-      rig.style.transform='translateY('+(d.lv).toFixed(1)+'px)';
+      rig.style.transform='translateY('+(d.lv*0.8).toFixed(1)+'px)';
       nm.textContent=d.n; cap.textContent=d.c; bl.innerHTML=d.b;
       fits.innerHTML=d.i.map(function(x){return '<li>'+x+'</li>';}).join('');
       pr.className='ld-price'+(d.p?'':' is-tbd');
       pr.innerHTML=d.p
-        ? '<span class="ld-from">Starting at</span><span class="ld-amt">'+d.p+'</span><span class="ld-sub">Loaded, hauled and swept up. No surprise fees on the day.</span>'
+        ? '<span class="ld-from">Starting at</span><span class="ld-amt">'+d.p+'</span><span class="ld-sub">Loaded, hauled and swept up. Your price is confirmed on site before we load.</span>'
         : '<span class="ld-from">Your price</span><span class="ld-amt">Quoted on site</span><span class="ld-sub">Text us a photo and we\u2019ll price it \u2014 usually within the hour.</span>';
       if(animate){top.classList.remove('ld-anim');void top.offsetWidth;top.classList.add('ld-anim');}
     }
